@@ -41,6 +41,6 @@ class ArticlesController < ApplicationController
     private
         # https://guides.rubyonrails.org/getting_started.html#using-strong-parameters
         def article_params
-            params.require(:article).permit(:title, :body)
+            params.require(:article).permit(:title, :body, :status)
         end
 end
