@@ -9,7 +9,7 @@ module Visible
     end
     class_methods do
         def public_count
-            where(stauts: 'public').count
+            where(status: 'public').count
         end
     end
     def archived?
