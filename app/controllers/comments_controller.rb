@@ -1,5 +1,7 @@
 # https://guides.rubyonrails.org/getting_started.html#generating-a-controller
 class CommentsController < ApplicationController
+    # https://guides.rubyonrails.org/getting_started.html#basic-authentication
+    http_basic_authenticate_with name: "Aizaz", password: "secret", only: :destroy
     def create
         @article = Article.find(params[:article_id])
         @comment = @article.comments.create(comment_params)

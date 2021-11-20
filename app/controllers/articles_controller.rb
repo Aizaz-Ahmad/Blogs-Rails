@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+    # https://guides.rubyonrails.org/getting_started.html#basic-authentication
+    http_basic_authenticate_with name: "Aizaz", password: "secret", except: [:index, :show]
     def index
         @articles = Article.all
         # if view to be rendered is not specified, Rails will render articles/index.html.erb
