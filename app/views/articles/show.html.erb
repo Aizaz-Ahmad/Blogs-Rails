@@ -8,31 +8,26 @@
 <%
 =end%>
 <div><%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}%></div>
+<%
+=begin%>
+ https://guides.rubyonrails.org/getting_started.html#refactoring 
+<%
+=end%>
 <h2>Comments: </h2>
-<% @article.comments.each do |comment|%>
+<%
+=begin%>
+ <% @article.comments.each do |comment|%>
     <p>
         <strong>Commenter: </strong> <%= comment.commenter%>
     </p>
     <p>
         <strong>Comment: </strong> <%= comment.body %>
     </p>
-<% end %>
-<h2>Add A Comment:</h2>
-<%
-=begin%>
- https://guides.rubyonrails.org/getting_started.html#generating-a-controller 
+<% end %> 
 <%
 =end%>
-<%= form_with model: [@article, @article.comments.build] do |form| %>
-    <p>
-        <%= form.label :commenter%>
-        <%= form.text_field :commenter%>
-    </p>
-    <p>
-        <%= form.label :body %>
-        <%= form.text_area :body%>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>
-<% end %>
+
+<%= render @article.comments%>
+<h2>Add A Comment:</h2>
+
+<%= render 'comments/form'%>
