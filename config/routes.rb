@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   # get "/articles", to: "articles#index"
   # # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # get "/article/:id", to: "articles#show"
-  resources :articles
+  # https://guides.rubyonrails.org/getting_started.html#adding-a-route-for-comments
+  resources :articles do
+    resources :comments
+  end
 end
