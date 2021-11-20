@@ -1,2 +1,10 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
+
+<div><%= link_to "Edit", edit_article_path(@article)%></div>
+<%
+=begin%>
+ https://guides.rubyonrails.org/getting_started.html#deleting-an-article 
+<%
+=end%>
+<div><%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}%></div>
